@@ -1,7 +1,12 @@
 import './App.css';
+import Nav from '../components/Header';
 
 function App() {
-	return <div className='App'></div>;
+	return (
+		<div className='App'>
+			<Nav />
+		</div>
+	);
 }
 
 export default App;
