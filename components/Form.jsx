@@ -1,9 +1,18 @@
 import React from 'react';
 import './form.css';
+import memeData from '../memeData';
 
 export default function Form() {
+	const [meme, setMeme] = React.useState('');
+
+	function generateMeme() {
+		const randomNum = Math.floor(Math.random() * memeData.data.memes.length);
+		const randomMeme = memeData.data.memes[randomNum];
+		setMeme(() => randomMeme);
+	}
+
 	return (
-		<form className='form'>
+		<div className='form'>
 			<div className='inputs'>
 				<input
 					type='text'
@@ -16,7 +25,10 @@ export default function Form() {
 					placeholder='bottom-text'
 				/>
 			</div>
-			<button className='btn btn-generate'>Get a new meme image</button>
-		</form>
+			<button className='btn btn-generate' onClick={generateMeme}>
+				Get a new meme image
+			</button>
+			<img className='meme-image' src={meme.url} alt={meme.name} />
+		</div>
 	);
 }
