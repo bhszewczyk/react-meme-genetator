@@ -44,6 +44,7 @@
 
 .meme-image {
 	padding: 2rem 2rem 0 2rem;
+	max-width: 90%;
 }
 
 .meme-container {
