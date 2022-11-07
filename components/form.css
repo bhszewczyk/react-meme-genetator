@@ -45,3 +45,28 @@
 .meme-image {
 	padding: 2rem 2rem 0 2rem;
 }
+
+.meme-container {
+	position: relative;
+	margin: 0 auto;
+}
+
+.meme-text {
+	position: absolute;
+	color: #f5f5f5;
+	text-shadow: 0 0 4px black;
+	font-size: 2rem;
+	left: 50%;
+	text-transform: uppercase;
+	transform: translateX(-50%);
+	font-family: 'Anton', sans-serif;
+	letter-spacing: 1px;
+}
+
+.meme-text.top {
+	top: 2.4rem;
+}
+
+.meme-text.bottom {
+	bottom: 0.4rem;
+}
