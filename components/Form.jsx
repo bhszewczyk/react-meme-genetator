@@ -1,6 +1,5 @@
 import React from 'react';
 import './form.css';
-import memeData from '../memeData';
 
 export default function Form() {
 	const [meme, setMeme] = React.useState({
@@ -10,9 +9,19 @@ export default function Form() {
 		name: 'Boromir',
 	});
 
+	const [allMemes, setAllMemes] = React.useState([]);
+
+	React.useEffect(() => {
+		fetch('https://api.imgflip.com/get_memes')
+			.then((res) => res.json())
+			.then((data) => setAllMemes(data.data.memes));
+	}, []);
+
+	console.log(allMemes);
+
 	function generateMeme() {
-		const randomNum = Math.floor(Math.random() * memeData.data.memes.length);
-		const randomMeme = memeData.data.memes[randomNum];
+		const randomNum = Math.floor(Math.random() * allMemes.length);
+		const randomMeme = allMemes[randomNum];
 		setMeme((prevState) => {
 			return {
 				...prevState,
